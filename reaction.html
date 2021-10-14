@@ -16,23 +16,48 @@
 
   <button type="button"
   class="btn btn-primary"
-  onclick="buttonPress2()">
-  Click me change the color.</button>
+  onclick="startTime()">
+  Start Timer</button>
+  <button type="button"
+  class="btn btn-primary"
+  onclick="recordReact()">
+  React Now</button>
   
-  <p id="target">I will become red </p>
+  <p id="target">Your time</p>
+  <p id="countdown">Count</p>
   
   <script> 
-  function buttonPress1() {
-    setTimeout(function(){
-      document.getElementById('target').style.color = "red"
-    }, 3000)
-  }
+  var myTime=undefined;
+  function recordReact() {
+          
+          myTime = Date.now();
+          console.log("Current Time in milliseconds is: " + myTime);
 
-  function buttonPress2() {
-    setTimeout(()=>{
-      document.getElementById('target').style.color = "red"
-    }, 3000)
-  }
+        }
+  
+
+        function startTime() {
+            myTime = undefined;
+            buttonTime = Date.now();
+
+            for(let i=0;i<4;i++){
+              setTimeout(() => {
+                  document.getElementById("countdown").innerHTML = i;
+                }, (3-i)*1000);
+            }
+
+              setTimeout(() => {
+                if(myTime == undefined){
+                  document.getElementById("target").innerHTML = "Too Slow";
+                }
+                
+                else{
+                  let elapsedTime = (-1) * (buttonTime - myTime);
+                  document.getElementById("target").innerHTML = "Time was "+elapsedTime;
+                }
+              }, 3000)
+            }
+
   </script>
 
 </body>
