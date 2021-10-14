@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <header>Gopi Krishna Animal hunt</header>
+        <header>Sowjanya Gunaganti by Animal hunt</header>
     <style>
         .flex-container {
       display: flex;  flex-direction:row;
@@ -62,6 +62,7 @@
         <p>Click on the squares to search for wild life</p>
         <p id="tries">Number of tries is zero</p>
         <p id="distance">Distance is unknown</p>
+        <button onclick="newgame()">reset</button>
         
            
 
@@ -142,9 +143,6 @@
         
               document.getElementById("tries").innerHTML = "Number of tries is " + triesCount ;
               document.getElementById("distance").innerHTML = "Distance is " + distance(position, animalLocation);
-
-
-
               
             }
             function distance(pos1, pos2)
@@ -175,6 +173,11 @@
         }
     }
    return Math.max(Math.abs(disa1-disa2),Math.abs(disb1-disb2))
+}
+function newgame()
+{
+    document.getElementById("tries").innerHTML =0
+    animalLocation=Math.floor(Math.random()*(23-0+1)-0)
 }
         
             
